@@ -712,6 +712,38 @@ input:checked + .slider:before {
   font-weight: 600;
 }
 
+/* Nav Sample Page Pill */
+.nav-sample-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.nav-sample-pill:hover {
+  background: var(--bg-surface-elevated);
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: translateY(-1px);
+}
+
+.badge-sample-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
 /* Test Page Callout Banner */
 .test-page-callout {
   display: flex;

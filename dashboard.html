@@ -32,6 +32,14 @@
     </div>
 
     <div class="nav-right">
+      <a href="test.html" class="nav-test-pill" id="navTestBtn" title="Open Interactive Test Sandbox">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2v7.31L4.89 20.7A2 2 0 0 0 6.64 23h10.72a2 2 0 0 0 1.75-2.3L14 9.31V2"></path>
+        </svg>
+        <span>Test Page</span>
+        <span class="badge-test-tag">Lab</span>
+      </a>
+
       <div class="user-pill" id="userPill">
         <span class="user-avatar-initials" id="userAvatar">AD</span>
         <span class="user-email-text" id="userEmailText">alex.developer@acme.dev</span>
@@ -193,6 +201,25 @@
           </button>
 
         </div>
+      </section>
+
+      <!-- Test Page Quick Access Banner -->
+      <section class="test-page-callout" aria-label="Testing Environment">
+        <div class="callout-content">
+          <div class="callout-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2v7.31L4.89 20.7A2 2 0 0 0 6.64 23h10.72a2 2 0 0 0 1.75-2.3L14 9.31V2"></path>
+            </svg>
+          </div>
+          <div class="callout-text">
+            <h4>Developer Test Sandbox</h4>
+            <p>Need to simulate REST API responses, test CDN ping latency, or verify toast alerts in an isolated sandbox?</p>
+          </div>
+        </div>
+        <a href="test.html" class="btn-callout-link" id="btnCalloutTest">
+          <span>Open Test Page</span>
+          <span class="callout-arrow">→</span>
+        </a>
       </section>
 
       <!-- Dynamic Interactive View Panel -->

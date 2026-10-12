@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page & Sandbox — Kronos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="dot-matrix-bg"></div>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="dashboard.html" class="btn-back-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Console</span>
+      </a>
+
+      <div class="brand-pill">
+        <span class="brand-logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">TEST LAB</span>
+        <span class="badge-beta">Sandbox</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <div class="user-pill" id="userPill">
+        <span class="user-avatar-initials" id="userAvatar">AD</span>
+        <span class="user-email-text" id="userEmailText">alex.developer@acme.dev</span>
+      </div>
+
+      <button id="themeToggleBtn" class="icon-btn" aria-label="Toggle theme" title="Switch Theme">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="12" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-wrapper">
+    <div class="hub-container">
+      
+      <!-- Header -->
+      <div class="hub-header">
+        <div class="hub-tagline">
+          <span class="badge-status">
+            <span class="pulse-indicator"></span> Sandbox Mode Active
+          </span>
+          <span class="hub-time">Isolated Environment</span>
+        </div>
+        <h1 class="hub-title">Developer Test Playground</h1>
+        <p class="hub-description">
+          Test simulated API responses, network latency pings, toast notifications, and client diagnostics without affecting production data.
+        </p>
+      </div>
+
+      <!-- Test Modules Grid -->
+      <div class="test-modules-grid">
+        
+        <!-- Module 1: API Endpoint Tester -->
+        <div class="test-card">
+          <div class="test-card-header">
+            <div class="header-icon icon-api">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h3>API Endpoint Tester</h3>
+              <p>Simulate REST API queries & view JSON payload responses</p>
+            </div>
+          </div>
+
+          <div class="test-card-body">
+            <!-- Endpoint selector -->
+            <div class="api-input-row">
+              <select id="apiMethod" class="api-method-select">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="DELETE">DELETE</option>
+              </select>
+              <select id="apiEndpoint" class="api-endpoint-select">
+                <option value="/health">/api/v1/health (Cluster Status)</option>
+                <option value="/metrics">/api/v1/metrics (Real-time Telemetry)</option>
+                <option value="/user">/api/v1/user/profile (Auth Token Check)</option>
+                <option value="/error-test">/api/v1/simulate-error (500 Handler)</option>
+              </select>
+              <button id="sendRequestBtn" class="btn-test-action">
+                <span>Send Request</span>
+                <span class="test-spinner" id="apiSpinner"></span>
+              </button>
+            </div>
+
+            <!-- Response preview -->
+            <div class="response-container">
+              <div class="response-status-bar">
+                <span class="status-badge" id="responseStatusBadge">200 OK</span>
+                <span class="latency-badge" id="responseLatencyBadge">14ms</span>
+                <span class="size-badge">1.4 KB</span>
+              </div>
+              <pre class="json-viewer" id="jsonViewer">{
+  "status": "ready",
+  "message": "Click 'Send Request' to test live API endpoint simulation."
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2: Network Ping & Health Latency -->
+        <div class="test-card">
+          <div class="test-card-header">
+            <div class="header-icon icon-ping">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Edge Ping Diagnostics</h3>
+              <p>Measure round-trip time across simulated CDN edges</p>
+            </div>
+          </div>
+
+          <div class="test-card-body">
+            <div class="ping-stats-row">
+              <div class="ping-box">
+                <span class="ping-title">US-East</span>
+                <span class="ping-val" id="pingUs">12 ms</span>
+                <span class="ping-status healthy">Optimal</span>
+              </div>
+              <div class="ping-box">
+                <span class="ping-title">EU-Central</span>
+                <span class="ping-val" id="pingEu">28 ms</span>
+                <span class="ping-status healthy">Optimal</span>
+              </div>
+              <div class="ping-box">
+                <span class="ping-title">AP-South</span>
+                <span class="ping-val" id="pingAp">34 ms</span>
+                <span class="ping-status healthy">Optimal</span>
+              </div>
+            </div>
+
+            <button id="runPingTestBtn" class="btn-test-action" style="margin-top: 14px; width: 100%;">
+              <span>⚡ Run Edge Ping Test</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Module 3: Toast Notification Tester -->
+        <div class="test-card">
+          <div class="test-card-header">
+            <div class="header-icon icon-toast">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Notification & Toast Playground</h3>
+              <p>Trigger and verify UI feedback banners and alert sounds</p>
+            </div>
+          </div>
+
+          <div class="test-card-body">
+            <div class="toast-buttons-row">
+              <button class="btn-sample-toast toast-btn-success" id="toastTestSuccess">
+                ✓ Success Toast
+              </button>
+              <button class="btn-sample-toast toast-btn-info" id="toastTestInfo">
+                ℹ Info Toast
+              </button>
+              <button class="btn-sample-toast toast-btn-error" id="toastTestError">
+                ✕ Error Toast
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 4: Client Environment Diagnostics -->
+        <div class="test-card">
+          <div class="test-card-header">
+            <div class="header-icon icon-sys">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <div>
+              <h3>System & Client Specs</h3>
+              <p>Diagnostic information detected from this session</p>
+            </div>
+          </div>
+
+          <div class="test-card-body">
+            <div class="sys-specs-list">
+              <div class="spec-row">
+                <span>Active User:</span>
+                <strong id="specUser">alex.developer@acme.dev</strong>
+              </div>
+              <div class="spec-row">
+                <span>Screen Resolution:</span>
+                <strong id="specRes">1920 x 1080</strong>
+              </div>
+              <div class="spec-row">
+                <span>Color Mode:</span>
+                <strong id="specTheme">Dark</strong>
+              </div>
+              <div class="spec-row">
+                <span>Storage Supported:</span>
+                <strong style="color: #10b981;">localStorage & sessionStorage OK</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Live Toast Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  </main>
+
+  <script src="test.js"></script>
+</body>
+</html>

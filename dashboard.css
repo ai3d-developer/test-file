@@ -680,6 +680,30 @@ input:checked + .slider:before {
   }
 }
 
+/* Nav Main Page Pill */
+.nav-main-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.nav-main-pill:hover,
+.nav-main-pill.active {
+  background: var(--bg-surface-elevated);
+  border-color: var(--accent-primary);
+  color: var(--accent-text);
+  transform: translateY(-1px);
+}
+
 /* Nav Test Page Pill */
 .nav-test-pill {
   display: inline-flex;
